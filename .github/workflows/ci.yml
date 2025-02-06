@@ -19,7 +19,13 @@ env:
 
 jobs:
   test:
-    runs-on: "runs-on=${{ github.run_id }}/runner=16cpu-linux-x64/extras=s3-cache/env=demo"
+    strategy:
+      matrix:
+        runner:
+          - ubuntu-22.04
+          - "runs-on=${{ github.run_id }}/runner=4cpu-linux-x64/extras=s3-cache/env=demo"
+          - "runs-on=${{ github.run_id }}/runner=16cpu-linux-x64/extras=s3-cache/env=demo"
+    runs-on: ${{ matrix.runner }}
     steps:
       - uses: runs-on/action@v1
       - uses: actions/checkout@v4
