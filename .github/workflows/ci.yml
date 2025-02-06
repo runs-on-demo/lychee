@@ -33,6 +33,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: taiki-e/install-action@nextest
       - uses: Swatinem/rust-cache@v2
+        with:
+          prefix-key: "2025-02-06"
       - name: Compile
         run: cargo check --locked
       - name: Test
