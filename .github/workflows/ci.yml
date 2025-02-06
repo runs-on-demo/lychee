@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         runner:
-          - ubuntu-22.04
+          - ubuntu-latest
           - "runs-on=${{ github.run_id }}/runner=4cpu-linux-x64/extras=s3-cache/env=demo"
           - "runs-on=${{ github.run_id }}/runner=16cpu-linux-x64/extras=s3-cache/env=demo"
     runs-on: ${{ matrix.runner }}
